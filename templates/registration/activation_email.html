@@ -1,0 +1,9 @@
+{% extends 'base_email.html' %}
+{% block content %}Olá!
+
+Clique no link abaixo para confirmar seu cadastro:
+
+https://{{ site.domain }}{% url 'registration_activate' activation_key=activation_key %}
+
+Obs: esse link irá expirar dentro de {{ expiration_days }} dias.
+{% endblock %}

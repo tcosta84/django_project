@@ -1,0 +1,2 @@
+{% extends 'base_email_subject.txt' %}
+{% block content %}Confirme seu cadastro{% endblock %}

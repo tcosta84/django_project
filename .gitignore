@@ -1,0 +1,6 @@
+.Python
+*.pyc
+*celerybeat-schedule
+.coverage
+htmlcov
+.env

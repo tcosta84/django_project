@@ -1,0 +1,43 @@
+{% extends 'base-logged-out.html' %}
+
+{% block page_title %}
+    {{ block.super }} - Cadastro
+{% endblock %}
+
+{% block page-content %}
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-5">
+        {% for error in form.non_field_errors %}
+            <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+        <form action="" method="post" role="form">{% csrf_token %}
+            <div class="form-group {% if form.email.errors %}has-error{% endif %}">
+                <input class="form-control input-lg" type="email" name="email" 
+                value="{{ form.email.value | default_if_none:'' }}" 
+                placeholder="Email">
+                <span class="help-block">
+                    {% for error in form.email.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </span>
+            </div>
+            <div class="form-group {% if form.password1.errors %}has-error{% endif %}">
+                <input class="form-control input-lg" type="password" name="password1" 
+                placeholder="Senha">
+                <span class="help-block">
+                    {% for error in form.password1.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </span>
+            </div>
+            <hr>
+            <div class="form-group">
+                <button class="btn btn-lg btn-success btn-block" type="submit"
+                    name="btn_register" role="button">Criar conta</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
